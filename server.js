@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const axios = require("axios");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 const weatherUrl = "http://api.weatherapi.com/v1";
 
 app.get('/api/hello', async (req, res) => {
