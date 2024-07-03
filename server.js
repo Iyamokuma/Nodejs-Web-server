@@ -16,12 +16,7 @@ app.get('/api/hello', async (req, res) => {
 
         // Example IP for testing purposes
         const testIp = '8.8.8.8'; // Google's public DNS server
-        const response = await axios.get(`${weatherUrl}/current.json`, {
-            params: {
-                key: process.env.WEATHER_API_KEY,
-                q: 10001
-            }
-        });
+        const response = await axios.get(`${weatherUrl}/current.json?key=${process.env.WEATHER_API_KEY}&q=${req.ip}`)
 
         const data = response.data;
         const result = {
