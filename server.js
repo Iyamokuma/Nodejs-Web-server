@@ -7,7 +7,7 @@ const weatherUrl = "http://api.weatherapi.com/v1";
 
 app.get('/api/hello', async (req, res) => {
     try {
-        const ip = req.ip === "::1" ? "127.0.0.1" : req.ip; // Handle localhost IP
+        const ip = process.env.NODE_ENV === “production” ? req.headers[“x-forwarded-for”] : req.ip
         const visitor = req.query.visitor_name;
         const name = visitor ? visitor : "username";
 
